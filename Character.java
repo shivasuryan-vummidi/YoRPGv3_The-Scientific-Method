@@ -14,9 +14,7 @@ public abstract class Character{
 	HP = 50;
 	strength = 20;
 	defense = 10;
-	originalD = defense; 
-	attack = 0.2;
-	originalA = attack; 
+	attack = 0.2; 
 	magik = 0;
 	category = "";
     }
