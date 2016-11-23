@@ -21,7 +21,7 @@ public class YoRPG
     public final static int MAX_ENCOUNTERS = 5;
 
     //each round, a Warrior and a Monster will be instantiated...
-    private Warrior pat;   //Is it man or woman?
+    private Character pat;   //Is it man or woman?
     private Monster smaug; //Friendly generic monster name?
     private Healer angel;
     private Mage wiz;
@@ -61,6 +61,7 @@ public class YoRPG
     {
 	String s;
 	String name = "";
+	String type = "";
 	s = "~~~ Welcome to Ye Olde RPG! ~~~\n";
 
 	s += "\nChoose your difficulty: \n";
@@ -75,7 +76,21 @@ public class YoRPG
 	}
 	catch ( IOException e ) { }
 
-	s = "Intrepid warrior, what doth thy call thyself? (State your name): ";
+	s = "Player, please pick a class: \n";
+	s += "\t1: Mage\n";
+	s += "\t2: Rogue\n";
+	s += "\t3: Warrior\n";
+	s += "\t4: TBM\n";
+	s += "Selection: ";
+	System.out.print(s);
+
+	try {
+	    type = Integer.parseInt( in.readLine() );
+	}
+	catch ( IOException e) { }
+	
+
+	s = "Intrepid " + type + ", what doth thy call thyself? (State your name): ";
 	System.out.print( s );
 
 	try {
@@ -84,7 +99,18 @@ public class YoRPG
 	catch ( IOException e ) { }
 
 	//instantiate the player's character
-	pat = new Warrior( name );
+	if (type == "Mage"){
+	    pat = new Mage( name ); 
+	}
+	else if (type == "Rogue"){
+	    pat = new Rogue( name );
+	}
+	else if (type == "TBM"){
+	    pat = new TBM( name );
+	}
+	else {
+	    pat = new Warrior( name );
+	}
 
 	angel = new Healer();
 
@@ -234,5 +260,4 @@ public class YoRPG
     }//end main
 
 }//end class YoRPG
-
 
