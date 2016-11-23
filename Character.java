@@ -24,6 +24,9 @@ public abstract class Character{
     public int getDefense(){
 	return defense;
     }
+    public String getName(){
+	return name;
+    }
     public int lowerHP(int damage){
 	HP -= damage;
 	return HP;
