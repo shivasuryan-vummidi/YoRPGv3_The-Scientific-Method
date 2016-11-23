@@ -5,6 +5,7 @@ public abstract class Character{
     protected int defense;
     protected double attack;
     protected int magik;
+    protected String name;
     protected String category;
     abstract void normalize(); 
     abstract void specialize(); 
