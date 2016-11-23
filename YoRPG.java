@@ -61,7 +61,7 @@ public class YoRPG
     {
 	String s;
 	String name = "";
-	String type = "";
+	int type = "";
 	s = "~~~ Welcome to Ye Olde RPG! ~~~\n";
 
 	s += "\nChoose your difficulty: \n";
