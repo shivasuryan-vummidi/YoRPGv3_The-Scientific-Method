@@ -11,4 +11,8 @@ public class Boss extends Character{
     public void specialize(){
 
     }
+    public String about(){
+	String retStr;
+	retStr = "BOSS: The ruler of the monsters and the antichrist to TBM. He will not give an inch and will fight TBM to the death. He is nearly impossible to kill";
+    }
 }
