@@ -9,6 +9,11 @@ public class Rogue extends Character {
         category = "Rogue"; 
     }
 
+    Rogue(String nAme){
+	this();
+	name = nAme;
+    }
+
     public void normalize() { 
 	defense = 25; 
 	attack = 1; 
