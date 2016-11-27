@@ -30,10 +30,9 @@ public class Healer extends Character {
 	return retStr; 
     } 
         public void specialize() { 
-        
-    }
+	    
+	}
     
     public void normalize() {
-	
     }
 }
