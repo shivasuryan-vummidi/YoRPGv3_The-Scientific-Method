@@ -108,7 +108,7 @@ public class YoRPG
 	    pat = new Rogue( name );
 	}
 	else if (type == 4){
-	    pat = new TBM( name );
+	    pat = new TBM ( name );
 	}
 	else {
 	    pat = new Warrior( name );
