@@ -22,7 +22,7 @@ CODE RESTRUCTURINGS:
 x.defense to be greater than the product of strength and attack, therefore a Character would be dealing negative damage. Because this is 
 illogical, we got around this by setting any damage values less than 0 to 0. 
 
-2. Abstract Art: 
+2. Abstract Art: Creating a superclass such as Character is vital to writing code, even as simple as the most basic of RPGs. One issue with creating a superclass, is that not all methods are applicable in both the superclass and its subclasses. In the RPG, methods like normalize() and specialize() could not be utilized by Characters, but by Warriors. As a solution, we made both of those methods abstract in the superclass (Character) and defined them in each of the subclasses. 
 
 INSTRUCTIONS: 
 
@@ -32,3 +32,4 @@ INSTRUCTIONS:
 4. Selectively choose whether you wish to continue your attack or resist. If you attack, you may Math.Random()ly recieve an instakill 
 from your TBM or a boost from your Healer. 
 5. Slay as many monsters as you can. 
+6. HAVE FUN!
