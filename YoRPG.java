@@ -113,6 +113,7 @@ public class YoRPG
 	else {
 	    pat = new Warrior( name );
 	    }*/
+	//A more compact version of else ifs
 	switch (type){
 	case 1:
 	    pat = new Mage(name);
