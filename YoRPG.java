@@ -26,7 +26,7 @@ public class YoRPG
     private Healer angel;
     private Mage wiz;
     private Rogue assassin;
-    private Character god;
+    private TBM god;
 
     private int moveCount;
     private boolean gameOver;
