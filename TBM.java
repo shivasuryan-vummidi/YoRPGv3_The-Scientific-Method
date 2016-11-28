@@ -63,7 +63,7 @@ public class TBM extends Character {
     // Main method 
 
     public static void main (String[] args) { 
-	TBM tophs = new TBM(); 
+	TBM tophs = new TBM("hi"); 
 	System.out.println(tophs.name);
 	System.out.println(tophs.instaKill); // 2
 	System.out.println(tophs.HP); // 200 
