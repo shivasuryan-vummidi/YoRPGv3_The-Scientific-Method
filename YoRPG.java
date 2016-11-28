@@ -101,7 +101,7 @@ public class YoRPG
 	catch ( IOException e ) { }
 
 	//instantiate the player's character
-	if (type == 1){
+	/*if (type == 1){
 	    pat = new Mage( name ); 
 	}
 	else if (type == 2){
@@ -112,8 +112,21 @@ public class YoRPG
 	}
 	else {
 	    pat = new Warrior( name );
+	    }*/
+	switch (type){
+	case 1:
+	    pat = new Mage(name);
+	    break;
+	case 2:
+	    pat = new Rogue(name);
+	    break;
+	case 4:
+	    pat = new TBM(name);
+	    break;
+	default:
+	    pat = new Warrior(name);
+	    break;
 	}
-
 	angel = new Healer();
 
 	s = "What shall thee name thy wiz? (State your Mage's name): ";
@@ -175,7 +188,12 @@ public class YoRPG
 
 		d1 = pat.attack( boss );
 		d2 = boss.attack( pat );
-
+		if(d1 <= 0){
+		    d1 = 0;
+		}
+		if(d2 <= 0){
+		    d2 = 0;
+		}
 		System.out.println( "\n" + pat.getName() + " dealt " + d1 +
 				    " points of damage.");
 

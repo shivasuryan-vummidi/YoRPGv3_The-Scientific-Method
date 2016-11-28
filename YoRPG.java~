@@ -18,7 +18,7 @@ public class YoRPG
     // ~~~~~~~~~~~ INSTANCE VARIABLES ~~~~~~~~~~~
 
     //change this constant to set number of encounters in a game
-    public final static int MAX_ENCOUNTERS = 5;
+    public final static int MAX_ENCOUNTERS = 20;
 
     //each round, a Warrior and a Monster will be instantiated...
     private Character pat;   //Is it man or woman?
@@ -34,6 +34,8 @@ public class YoRPG
 
     private InputStreamReader isr;
     private BufferedReader in;
+
+    private int level = 0;
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
@@ -61,7 +63,7 @@ public class YoRPG
     {
 	String s;
 	String name = "";
-	int type = "";
+	int type = 3;
 	s = "~~~ Welcome to Ye Olde RPG! ~~~\n";
 
 	s += "\nChoose your difficulty: \n";
@@ -90,7 +92,7 @@ public class YoRPG
 	catch ( IOException e) { }
 	
 
-	s = "Intrepid " + type + ", what doth thy call thyself? (State your name): ";
+	s = "Intrepid player, what doth thy call thyself? (State your name): ";
 	System.out.print( s );
 
 	try {
@@ -99,14 +101,14 @@ public class YoRPG
 	catch ( IOException e ) { }
 
 	//instantiate the player's character
-	if (type == "Mage"){
+	if (type == 1){
 	    pat = new Mage( name ); 
 	}
-	else if (type == "Rogue"){
+	else if (type == 2){
 	    pat = new Rogue( name );
 	}
-	else if (type == "TBM"){
-	    pat = new TBM( name );
+	else if (type == 4){
+	    pat = new TBM (name);
 	}
 	else {
 	    pat = new Warrior( name );
@@ -134,7 +136,7 @@ public class YoRPG
 	}
 	catch ( IOException e ) { }
 
-	god = new TBM( name );
+	god = new TBM ( name );
 
     }//end newGame()
 
@@ -152,6 +154,54 @@ public class YoRPG
 
 	if ( Math.random() >= ( difficulty / 3.0 ) )
 	    System.out.println( "\nNothing to see here. Move along!" );
+	else if ( level == 4){
+	    System.out.println( "\nPlayer, congrats! Thee has't arrived at the boss level!" );
+	    Boss boss = new Boss();
+	    while ( boss.isAlive() && pat.isAlive() ){	   
+		// Give user the option of using a special attack:
+		// If you land a hit, you incur greater damage,
+		// ...but if you get hit, you take more damage.
+		try {
+		    System.out.println( "\nDo you feel lucky?" );
+		    System.out.println( "\t1: Nay.\n\t2: Aye!" );
+		    i = Integer.parseInt( in.readLine() );
+		}
+		catch ( IOException e ) { }
+
+		if ( i == 2 )
+		    pat.specialize();
+		else
+		    pat.normalize();
+
+		d1 = pat.attack( boss );
+		d2 = boss.attack( pat );
+
+		System.out.println( "\n" + pat.getName() + " dealt " + d1 +
+				    " points of damage.");
+
+		System.out.println( "\n" + "Ye Boss smacked " + pat.getName() +
+				    " for " + d2 + " points of damage.");
+	    }//end while
+
+	    //option 1: you & the Boss perish
+	    if ( !boss.isAlive() && !pat.isAlive() ) {
+		System.out.println( "'Twas an epic battle, to be sure... " + 
+				    "You cut ye Boss down, but " +
+				    "with its dying breath ye olde Boss. " +
+				    "laid a fatal blow upon thy skull." );
+		return false;
+	    }
+	    //option 2: you slay the Boss and wins the game
+	    else if ( !boss.isAlive() ) {
+		System.out.println( "HuzzaaH! Ye Boss hath been slain! Thee has't won the game!" );
+		return false;
+	    }
+	    //option 3: the Boss slays you
+	    else if ( !pat.isAlive() ) {
+		System.out.println( "Ye olde self hath expired. You got dead." );
+		return false;
+	    }
+	}
 	else {
 	    System.out.println( "\nLo, yonder monster approacheth!" );
 
@@ -223,6 +273,7 @@ public class YoRPG
 	    //option 2: you slay the beast
 	    else if ( !smaug.isAlive() ) {
 		System.out.println( "HuzzaaH! Ye olde monster hath been slain!" );
+		level += 1;
 		return true;
 	    }
 	    //option 3: the beast slays you
