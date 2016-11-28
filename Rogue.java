@@ -1,6 +1,6 @@
 public class Rogue extends Character { 
 
-   Rogue() { 
+   public Rogue() { 
 
 	HP = 125; 
 	strength = 50; 
@@ -9,7 +9,7 @@ public class Rogue extends Character {
         category = "Rogue"; 
     }
 
-    Rogue(String nAme){
+    public Rogue(String nAme){
 	this();
 	name = nAme;
     }

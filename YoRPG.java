@@ -18,7 +18,7 @@ public class YoRPG
     // ~~~~~~~~~~~ INSTANCE VARIABLES ~~~~~~~~~~~
 
     //change this constant to set number of encounters in a game
-    public final static int MAX_ENCOUNTERS = 5;
+    public final static int MAX_ENCOUNTERS = 20;
 
     //each round, a Warrior and a Monster will be instantiated...
     private Character pat;   //Is it man or woman?
@@ -34,6 +34,8 @@ public class YoRPG
 
     private InputStreamReader isr;
     private BufferedReader in;
+
+    private int level = 0;
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
@@ -90,7 +92,7 @@ public class YoRPG
 	catch ( IOException e) { }
 	
 
-	s = "Intrepid " + type + ", what doth thy call thyself? (State your name): ";
+	s = "Intrepid player, what doth thy call thyself? (State your name): ";
 	System.out.print( s );
 
 	try {
@@ -149,7 +151,6 @@ public class YoRPG
     {
 	int i = 1;
 	int d1, d2, d3;
-	int level = 0;
 
 	if ( Math.random() >= ( difficulty / 3.0 ) )
 	    System.out.println( "\nNothing to see here. Move along!" );

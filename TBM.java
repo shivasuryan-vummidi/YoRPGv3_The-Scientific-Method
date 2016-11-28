@@ -22,9 +22,9 @@ public class TBM extends Character {
 
     // Overloaded Constructor with name input 
 
-    TBM (String newname) { 
+    TBM (String nAme) { 
 	this(); 
-	name = newname; 
+	name = nAme; 
     }
  
     // Takes a character input and automatically kills them, as long as you have an instaKill in your arsenal still. 
