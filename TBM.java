@@ -26,6 +26,10 @@ public class TBM extends Character {
 	this(); 
 	name = nAme; 
     }
+	
+    public String getName() { 
+	return name; 
+    } 
  
     // Takes a character input and automatically kills them, as long as you have an instaKill in your arsenal still. 
 
