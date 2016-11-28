@@ -2,8 +2,8 @@
 
 public class TBM extends Character { 
 
-    private String name; 
-    private int instaKill; 
+    public String name; 
+    public int instaKill; 
 
 
     // Default constructor 
@@ -15,7 +15,7 @@ public class TBM extends Character {
 	strength = 100; 
 	defense = 50; 
 	attack = 1.5; 
-    category = "TBM"; 
+        category = "TBM"; 
 	instaKill = 2; 
     }
 
