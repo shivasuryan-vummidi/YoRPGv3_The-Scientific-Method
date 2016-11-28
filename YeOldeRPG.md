@@ -1,4 +1,4 @@
-Ye Olde RPG by The Scientific Method (Edwin Mok, Eugene Thomas, and Shiva Vummidi)
+                            Ye Olde RPG by The Scientific Method (Edwin Mok, Eugene Thomas, and Shiva Vummidi)
 
 FEATURE ADDITIONS: 
 
